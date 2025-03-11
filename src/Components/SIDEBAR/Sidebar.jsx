@@ -216,6 +216,7 @@ export default function SidebaBar({ toggle, setToggle }) {
     // },
     {
       key: 9,
+      
       data: "Service Box",
       link: `/panel/${BusinessType}/servicebox`,
       icon: <MdOutlineEmail />,
