@@ -38,6 +38,14 @@ import { FaStarOfLife } from "react-icons/fa";
 export default function TenantLogin() {
   //-------------------------------------- Microsoft Authentication Setup --------------------------------
 
+  const baseUrl = import.meta.env.VITE_BASE_URL || "localhost"; // Default to localhost
+  const port = import.meta.env.VITE_PORT || "5173"; // Default to 5173 if undefined
+  const urlChangeBase = import.meta.env.VITE_URLCHANGE_BASE || ""; // Server base URL
+
+// console.log("Base URL:", baseUrl); // Debugging
+// console.log("Port:", port); // Debugging
+// console.log("urlChangeBase:", urlChangeBase); // Debugging
+
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userData, setUserData] = useState(null);
   const [managerData, setManagerData] = useState(null);
@@ -234,11 +242,13 @@ export default function TenantLogin() {
       } catch (error) {
         console.error("Error checking tenant:", error); // Log the error
         setTimeout(() => {
-          //localhost
-          const newUrl = `http://${name}.localhost:5173`;
+     
+          let newUrl =
+          baseUrl === "localhost"
+            ? `http://${name}.localhost:${port}/VerifyTenant`
+            : `http://${name}.${urlChangeBase}/VerifyTenant`;
 
-          //forServer
-          //  const newUrl = `http://${name}.${urlchange_base}/VerifyTenant `
+console.log("TL: Redirecting to :", newUrl)            
           window.location.href = newUrl;
         }, 100);
       }
