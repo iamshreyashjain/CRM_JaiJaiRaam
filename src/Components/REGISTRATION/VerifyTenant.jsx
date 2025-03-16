@@ -34,12 +34,12 @@ export default function VerifyTenant() {
   console.log("Hostname part:", name);
 
   const baseUrl = import.meta.env.VITE_BASE_URL || "localhost"; // Default to localhost
-const port = import.meta.env.VITE_PORT || "5173"; // Default to 5173 if undefined
-const urlChangeBase = import.meta.env.VITE_URLCHANGE_BASE || ""; // Server base URL
+  const port = import.meta.env.VITE_PORT || "5173"; // Default to 5173 if undefined
+  const urlChangeBase = import.meta.env.VITE_URLCHANGE_BASE || ""; // Server base URL
 
-console.log("Base URL:", baseUrl); // Debugging
-console.log("Port:", port); // Debugging
-console.log("urlChangeBase:", urlChangeBase); // Debugging
+// console.log("Base URL:", baseUrl); // Debugging
+// console.log("Port:", port); // Debugging
+// console.log("urlChangeBase:", urlChangeBase); // Debugging
 
   useEffect(() => {
     const apiUrl = `${protocal_url}${name}.${tenant_base_url}/Tenants/check`;
