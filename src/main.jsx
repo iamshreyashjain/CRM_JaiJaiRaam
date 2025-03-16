@@ -1,3 +1,4 @@
+//Code for the entire application 
 import { RouterProvider } from "react-router-dom";
 import { createBrowserRouter } from "react-router-dom";
 import { createRoot } from "react-dom/client";
@@ -276,7 +277,7 @@ const router = createBrowserRouter([
     children: [
       { path: "", element: <Home /> },
 
-      //Lead->
+      //Leads start from here
       { path: "dashboard", element: <Home /> },
       { path: "lead", element: <Lead /> },
       { path: "editlead/:id", element: <Createlead /> },
