@@ -310,7 +310,7 @@ export default function TenantLogin() {
       //IMP for handling businessType such as Brokerage, IT, Retail.... etc
       localStorage.setItem(
         "businessType",
-        response.data.data.userDetail.businessType,
+        response.data.data.userDetail.businessType.replace(/\s+/g, "")
       );
 
       localStorage.setItem("CurrentUserId", response.data.data.userDetail.userId);
