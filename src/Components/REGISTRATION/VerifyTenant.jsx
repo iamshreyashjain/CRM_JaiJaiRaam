@@ -37,9 +37,9 @@ export default function VerifyTenant() {
   const port = import.meta.env.VITE_PORT || "5173"; // Default to 5173 if undefined
   const urlChangeBase = import.meta.env.VITE_URLCHANGE_BASE || ""; // Server base URL
 
-// console.log("Base URL:", baseUrl); // Debugging
-// console.log("Port:", port); // Debugging
-// console.log("urlChangeBase:", urlChangeBase); // Debugging
+console.log("Base URL:", baseUrl); // Debugging
+console.log("Port:", port); // Debugging
+console.log("urlChangeBase:", urlChangeBase); // Debugging
 
   useEffect(() => {
     const apiUrl = `${protocal_url}${name}.${tenant_base_url}/Tenants/check`;
@@ -66,13 +66,20 @@ export default function VerifyTenant() {
         if (isSuccess) {
           showSuccessToast("Tenant Verified!");
           setTimeout(() => {
-            let newUrl =
-              baseUrl === "localhost"
-                ? `http://${name}.localhost:${port}/tenantlogin`
-                : `http://${name}.${urlChangeBase}/tenantlogin`;
-  
-            // console.log("Redirecting to:", newUrl);
-            window.location.href = newUrl; // ✅ Missing redirection line added
+            const baseUrl =
+            import.meta.env.MODE === "development"
+              ? "localhost" // Development mode
+              : import.meta.env.VITE_BASE_URL || "igniculusscrm.com"; // Production mode
+          
+          const port = import.meta.env.VITE_PORT || "5173"; // Default development port
+          const urlChangeBase = import.meta.env.VITE_URLCHANGE_BASE || "igniculusscrm.com"; // Ensure a default value for production
+          
+          let newUrl =
+            baseUrl === "localhost"
+              ? `http://${name}.localhost:${port}/VerifyTenant` // Development URL
+              : `https://${name}.${urlChangeBase}/VerifyTenant`; // Production URL
+          
+          console.log("New URL:", newUrl);
           }, 100);
         } else {
           showErrorToast("Tenant verification failed");
@@ -114,11 +121,21 @@ export default function VerifyTenant() {
             return;
           }
   
-          let newUrl =
-            baseUrl === "localhost"
-              ? `http://${data.name}.localhost:${port}/tenantlogin`
-              : `http://${data.name}.${urlChangeBase}/tenantlogin`;
-  
+          const baseUrl =
+          import.meta.env.MODE === "development"
+            ? "localhost" // Development mode
+            : import.meta.env.VITE_BASE_URL || "igniculusscrm.com"; // Production mode
+        
+        const port = import.meta.env.VITE_PORT || "5173"; // Default development port
+        const urlChangeBase = import.meta.env.VITE_URLCHANGE_BASE || "igniculusscrm.com"; // Ensure a default value for production
+        
+        let newUrl =
+          baseUrl === "localhost"
+            ? `http://${data.name}.localhost:${port}/tenantlogin` // Development URL
+            : `https://${data.name}.${urlChangeBase}/tenantlogin`; // Production URL
+        
+        console.log("New URL:", newUrl);
+        
           // console.log("Redirecting to:", newUrl);
           window.location.href = newUrl; // ✅ Missing redirection line added
         }, 100);
