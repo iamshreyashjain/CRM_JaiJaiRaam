@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import { getHostnamePart } from "./Components/SIDEBAR/SIDEBAR_SETTING/ReusableComponents/GlobalHostUrl";
 
-const INACTIVITY_TIMEOUT = 2640000; // 44 minutes
-// const INACTIVITY_TIMEOUT = 26400; // 26.4 seconds
+// const INACTIVITY_TIMEOUT = 2640000; // 44 minutes
+const INACTIVITY_TIMEOUT = 26400; // 26.4 seconds
 
 const ProtectedRoute = ({ children }) => {
   const navigate = useNavigate();
@@ -45,14 +45,20 @@ console.log("urlChangeBase:", urlChangeBase); // Debugging
     location.reload();
 
 
-
-    let newUrl =
+    const baseUrl =
+    import.meta.env.MODE === "development"
+      ? "localhost" // Development mode
+      : import.meta.env.VITE_BASE_URL || "igniculusscrm.com"; // Production mode
+  
+  const port = import.meta.env.VITE_PORT || "5173"; // Default development port
+  const urlChangeBase = import.meta.env.VITE_URLCHANGE_BASE || "igniculusscrm.com"; // Ensure a default value for production
+  
+  let newUrl =
     baseUrl === "localhost"
-      ? `http://${name}.localhost:${port}/tenantlogin`
-      : `http://${name}.${urlChangeBase}/tenantlogin`;
-
-    console.log("PR: Redirecting to :", newUrl)            
-    window.location.href = newUrl;
+      ? `http://${name}.localhost:${port}/tenantlogin` // Development URL
+      : `https://${name}.${urlChangeBase}/tenantlogin`; // Production URL
+  
+  console.log("New URL:", newUrl);
     
   };
 

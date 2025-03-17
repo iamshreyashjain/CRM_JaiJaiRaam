@@ -172,16 +172,24 @@ console.log("urlChangeBase:", urlChangeBase); // Debugging
         // Check if running on localhost or server
 
         
-        const newUrl = baseUrl === "localhost"
-          ? `http://${host.split(".")[0]}.localhost:${port}/welcome/${tenantId}`
-          : `http://${host.split(".")[0]}.${urlChangeBase}/welcome/${tenantId}`;
-        
-        console.log("Redirecting to:", newUrl);
-        window.location.href = newUrl; // Perform redirection
-        
-
-        console.log("Redirect to: ",newUrl)
-        window.location.href = newUrl;
+        const baseUrl =
+        import.meta.env.MODE === "development"
+          ? "localhost" // Development mode
+          : import.meta.env.VITE_BASE_URL || "igniculusscrm.com"; // Production mode
+      
+      const port = import.meta.env.VITE_PORT || "5173"; // Default development port
+      const urlChangeBase = import.meta.env.VITE_URLCHANGE_BASE || "igniculusscrm.com"; // Default production domain
+      
+      const subdomain = host.split(".")[0]; // Extract subdomain (e.g., "companyname")
+      
+      const newUrl =
+        baseUrl === "localhost"
+          ? `http://${subdomain}.localhost:${port}/welcome/${tenantId}` // Development URL
+          : `https://${subdomain}.${urlChangeBase}/welcome/${tenantId}`; // Production URL
+      
+      console.log("Redirecting to:", newUrl);
+      window.location.href = newUrl; // Perform redirection
+      
       }
     } catch (error) {
       console.error("Error:", error.response.data.errors.tenant);

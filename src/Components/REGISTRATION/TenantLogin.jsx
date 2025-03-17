@@ -42,9 +42,14 @@ export default function TenantLogin() {
   const port = import.meta.env.VITE_PORT || "5173"; // Default to 5173 if undefined
   const urlChangeBase = import.meta.env.VITE_URLCHANGE_BASE || ""; // Server base URL
 
-// console.log("Base URL:", baseUrl); // Debugging
-// console.log("Port:", port); // Debugging
-// console.log("urlChangeBase:", urlChangeBase); // Debugging
+
+console.log("Port:", port); // Debugging
+
+
+console.log("Base URL:", import.meta.env.VITE_BASE_URL);
+console.log("URL Change Base:", import.meta.env.VITE_URLCHANGE_BASE);
+
+
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userData, setUserData] = useState(null);
@@ -243,13 +248,21 @@ export default function TenantLogin() {
         console.error("Error checking tenant:", error); // Log the error
         setTimeout(() => {
      
-          let newUrl =
+          const baseUrl =
+          import.meta.env.MODE === "development"
+            ? "localhost" // Development mode
+            : import.meta.env.VITE_BASE_URL || "igniculusscrm.com"; // Production mode
+        
+        const port = import.meta.env.VITE_PORT || "5173"; // Default development port
+        const urlChangeBase = import.meta.env.VITE_URLCHANGE_BASE || "igniculusscrm.com"; // Ensure a default value for production
+        
+        let newUrl =
           baseUrl === "localhost"
-            ? `http://${name}.localhost:${port}/VerifyTenant`
-            : `http://${name}.${urlChangeBase}/VerifyTenant`;
-
-console.log("TL: Redirecting to :", newUrl)            
-          window.location.href = newUrl;
+            ? `http://${name}.localhost:${port}/VerifyTenant` // Development URL
+            : `https://${name}.${urlChangeBase}/VerifyTenant`; // Production URL
+        
+        console.log("New URL:", newUrl);
+        
         }, 100);
       }
     };
