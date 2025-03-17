@@ -140,6 +140,10 @@ import Group from "./Components/SIDEBAR/SIDEBAR_SETTING/SIDEBAR_SETTING_COMPONEN
 
 //Product Management 
 import ProductManagement from "./Components/RealState/Pages/Product_Management/ProductManagement.jsx";
+import Services from "./Components/RealState/Pages/Product_Management/Services/Services.jsx";
+import AllDevelopers from "./Components/RealState/Pages/Product_Management/AllDeveloper/AllDevelopers.jsx";
+import ListingURLS from "./Components/RealState/Pages/Product_Management/Listing URLS/ListingURLS.jsx";
+
 
 
 const router = createBrowserRouter([
@@ -395,6 +399,9 @@ const router = createBrowserRouter([
       { path: "", element: <Home /> },
       // Product Management
       { path: "product_management", element: <ProductManagement /> },
+      { path: "product_management/product_&_Services", element: <Services /> },
+      { path: "product_management/all_developers", element: <AllDevelopers /> },
+      { path: "product_management/Listing_URLS", element: <ListingURLS /> },
       //Lead->
       { path: "dashboard", element: <Home /> },
       { path: "lead", element: <Lead /> },

@@ -1,5 +1,6 @@
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { CardContent, Typography, Box, Modal, Fade } from "@mui/material";
-import { useState } from "react";
 //---------------------------- Icon ---------------------------------
 import { FaGlobe } from "react-icons/fa";
 import { GiOpenBook } from "react-icons/gi";
@@ -44,15 +45,29 @@ const data = [
 ];
 
 export default function ProductManagement() {
+  const navigate = useNavigate();
+  //------------------------------------------------ All States --------------------------------------------
   const [open, setOpen] = useState(false);
+  const [businessType, setBusinessType] = useState("");
+  //--------------------------------------- Set Business Type --------------------------------------------
+
+  useEffect(() => {
+    const storedType = localStorage.getItem("businessType") || "";
+    setBusinessType(storedType);
+  }, []);
 
   const handleAction = (title) => {
     if (title === "Inventory Configuration") {
       setOpen(true);
     }
-    if(title ==="Developers"){
-      console.log("sdsd");
-      
+    if (title === "Products & Services") {
+      navigate(`/panel/${businessType}/product_management/product_&_Services`);
+    }
+    if (title === "Developers") {
+      navigate(`/panel/${businessType}/product_management/all_developers`);
+    }
+    if (title === "Listing URLs") {
+      navigate(`/panel/${businessType}/product_management/Listing_URLS`);
     }
   };
 
@@ -71,7 +86,7 @@ export default function ProductManagement() {
         {data.map((item, index) => (
           <Box
             key={index}
-            className="rounded-lg border border-gray-200 shadow-lg"
+            className="cursor-pointer rounded-lg border border-gray-200 shadow-lg transition-colors duration-300 hover:bg-cyan-50"
             onClick={() => handleAction(item.title)}
           >
             <CardContent className="flex flex-col items-start gap-4 !p-6 !pt-8">
@@ -86,6 +101,7 @@ export default function ProductManagement() {
           </Box>
         ))}
       </div>
+
       {/* Modal for Inventory Configuration */}
       <Modal open={open} onClose={handleClose} closeAfterTransition>
         <Fade in={open}>

@@ -274,8 +274,14 @@ export default function SidebaBar({ toggle }) {
     handlewelcomedata();
   }, []);
 
-  const [active, setActive] = useState(activeSidebar[0].key);
-
+  const [active, setActive] = useState(
+    () => Number(localStorage.getItem("activeSidebarKey")) || activeSidebar[0].key
+  );
+  
+  useEffect(() => {
+    localStorage.setItem("activeSidebarKey", active);
+  }, [active]);
+  
   const handleClick = (key) => setActive(key);
 
   return (
