@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import { getHostnamePart } from "./Components/SIDEBAR/SIDEBAR_SETTING/ReusableComponents/GlobalHostUrl";
 
-// const INACTIVITY_TIMEOUT = 2640000; // 44 minutes
-const INACTIVITY_TIMEOUT = 26400; // 26.4 seconds
+const INACTIVITY_TIMEOUT = 2640000; // 44 minutes
+// const INACTIVITY_TIMEOUT = 26400; // 26.4 seconds
 
 const ProtectedRoute = ({ children }) => {
   const navigate = useNavigate();
