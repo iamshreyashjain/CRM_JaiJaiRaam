@@ -144,7 +144,11 @@ import ProductManagement from "./Components/RealState/Pages/Product_Management/P
 import Services from "./Components/RealState/Pages/Product_Management/Services/Services.jsx";
 import AllDevelopers from "./Components/RealState/Pages/Product_Management/AllDeveloper/AllDevelopers.jsx";
 import ListingURLS from "./Components/RealState/Pages/Product_Management/Listing URLS/ListingURLS.jsx";
+import ProjectTowerStage from "./Components/RealState/Pages/Product_Management/Project Tower Stage/ProjectTowerStage.jsx";
+import ProjectUnitStages from "./Components/RealState/Pages/Product_Management/Project Unit Stages/ProjectUnitStages.jsx";
 
+// Real Estate Home Page
+import RealEstateHome from "./Components/RealState/Pages/Home/RealEstateHome.jsx";
 
 
 const router = createBrowserRouter([
@@ -397,14 +401,19 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
     children: [
-      { path: "", element: <Home /> },
-      // Product Management
+      { path: "", element: <RealEstateHome /> },
+      // Product Management ->
       { path: "product_management", element: <ProductManagement /> },
       { path: "product_management/product_&_Services", element: <Services /> },
       { path: "product_management/all_developers", element: <AllDevelopers /> },
       { path: "product_management/Listing_URLS", element: <ListingURLS /> },
+      { path: "product_management/ProjectTowerStage", element: <ProjectTowerStage /> },
+      { path: "product_management/ProjectUnitStages", element: <ProjectUnitStages /> },
+
+      // Real Estate Home Page ->
+      { path: "dashboard", element: <RealEstateHome /> },
+
       //Lead->
-      { path: "dashboard", element: <Home /> },
       { path: "lead", element: <Lead /> },
       { path: "editlead/:id", element: <Createlead /> },
       { path: "createlead", element: <Createlead /> },

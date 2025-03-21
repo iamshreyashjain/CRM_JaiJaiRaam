@@ -60,6 +60,12 @@ export default function ProductManagement() {
     if (title === "Inventory Configuration") {
       setOpen(true);
     }
+    if (title === "Project Tower Stages") {
+      navigate(`/panel/${businessType}/product_management/ProjectTowerStage`);
+    }
+    if (title === "Project Unit Stages") {
+      navigate(`/panel/${businessType}/product_management/ProjectUnitStages`);
+    }
     if (title === "Products & Services") {
       navigate(`/panel/${businessType}/product_management/product_&_Services`);
     }

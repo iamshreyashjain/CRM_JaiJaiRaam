@@ -365,7 +365,7 @@ export default function Home() {
                   Choose Plan
                 </button>
               </Link>
-              <Link to="/panel" onClick={() => setShowSubscription(false)}>
+              <Link to={`/panel/${businessType}/dashboard`} onClick={() => setShowSubscription(false)}>
                 <ImCancelCircle color="red" size={25} />
               </Link>
             </div>
