@@ -150,6 +150,9 @@ import ProjectUnitStages from "./Components/RealState/Pages/Product_Management/P
 // Real Estate Home Page
 import RealEstateHome from "./Components/RealState/Pages/Home/RealEstateHome.jsx";
 
+// Real Estate Leads Page
+import RealEstateLeads from "./Components/RealState/Pages/RealEstate Leads/RealEstateLeads.jsx";
+
 
 const router = createBrowserRouter([
   //Login
@@ -414,7 +417,7 @@ const router = createBrowserRouter([
       { path: "dashboard", element: <RealEstateHome /> },
 
       //Lead->
-      { path: "lead", element: <Lead /> },
+      { path: "leads", element: <RealEstateLeads /> },
       { path: "editlead/:id", element: <Createlead /> },
       { path: "createlead", element: <Createlead /> },
       { path: "lead/create/so/:id", element: <CreateSOLead /> },
