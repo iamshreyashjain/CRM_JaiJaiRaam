@@ -191,7 +191,7 @@ export default function SidebaBar({ toggle }) {
       {
         key: 2,
         data: "Leads",
-        link: `/panel/${businessType}/lead`,
+        link: `/panel/${businessType}/leads`,
         icon: <GrContactInfo />,
       },
       {

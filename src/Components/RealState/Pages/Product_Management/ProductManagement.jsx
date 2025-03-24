@@ -77,7 +77,9 @@ export default function ProductManagement() {
     }
   };
 
+  //---------------------------- Modal Close Button------------------------------------------------
   const handleClose = () => setOpen(false);
+  
   return (
     <div className="h-full bg-gray-200 p-6">
       <Box className="mb-4 w-full rounded-md bg-white p-2">
