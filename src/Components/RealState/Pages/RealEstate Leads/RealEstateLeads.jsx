@@ -1,5 +1,5 @@
-import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useState,useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Stack,
@@ -31,7 +31,15 @@ const buyerData = [
   ];
 
 export default function RealEstateLeads() {
-  //   const navigate = useNavigate();
+    const navigate = useNavigate();
+
+    //--------------------------------------- Set Business Type --------------------------------------------
+    const [businessType, setBusinessType] = useState("");
+  
+    useEffect(() => {
+      const storedType = localStorage.getItem("businessType") || "";
+      setBusinessType(storedType);
+    }, []);
 
   //---------------------------------------- All States ---------------------------------
   const [selectedButton, setSelectedButton] = useState("Buyers");
@@ -84,15 +92,18 @@ export default function RealEstateLeads() {
       <Box className="flex w-full gap-3 rounded-md bg-white p-2">
         <Typography
           sx={{ width: "fit-content" }}
-          className="rounded-md !bg-cyan-500 px-3 py-1 text-sm !text-white"
+          className="rounded-md !bg-gray-200 px-3 py-1 text-sm !text-black cursor-pointer hover:!bg-cyan-400 hover:!text-white"
+          onClick={() => {
+            navigate(`/panel/${businessType}/leads/search_lead`);
+          }}
         >
           Search
         </Typography>
         <Typography
           sx={{ width: "fit-content" }}
-          className="rounded-md !bg-cyan-500 px-3 py-1 text-sm !text-white"
+          className="rounded-md !bg-cyan-500 px-3 py-1 text-sm !text-white cursor-pointer"
         >
-          All Developers
+          All Leads
         </Typography>
       </Box>
       {/* ----------------------------------------- Buttons --------------------------------- */}

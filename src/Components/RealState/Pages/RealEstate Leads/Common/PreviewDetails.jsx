@@ -1,17 +1,24 @@
+import { useState } from "react";
+// import PropTypes from "prop-types";
+
+//---------------------------- MUI Imports ----------------------------
 import {
- 
   Typography,
   Divider,
   Select,
-  MenuItem,
+  MenuItem,Modal, Fade,Box
 } from "@mui/material";
-// import { PiDotsThreeOutlineVerticalLight } from "react-icons/pi";
+//------------------------------------ React Icon ----------------------------
+import { IoMdCloseCircleOutline } from "react-icons/io";
+import MatchingProperties from "./MatchingProperties/MatchingProperties";
 
 const PreviewDetails = () => {
-  //---------------------------------------------- All States ----------------------------------------------------
-
+    //------------------------------------------------ All States --------------------------------------------
+      const [open, setOpen] = useState(false);
+        //---------------------------- Modal Close Button------------------------------------------------
+  const handleClose = () => setOpen(false);
   return (
-    <div className="flex min-h-screen flex-col gap-6 py-6">
+    <div className="flex min-h-screen flex-col gap-3 py-3">
       {/* Header Section */}
       <div className="flex items-center justify-between gap-4 rounded-md p-4 shadow-md">
         <Typography variant="h6" className="font-bold">
@@ -83,7 +90,7 @@ const PreviewDetails = () => {
           {/* Button */}
           <div className="flex w-full flex-wrap justify-end gap-3">
             {/* Similar Find Button */}
-            <button className="flex w-full items-center justify-center border rounded-md bg-gray-100 px-6 py-1 text-sm text-gray-500 shadow-md transition-all hover:bg-cyan-200 md:w-auto">
+            <button onClick={()=>( setOpen(true))} className="flex w-full items-center justify-center border rounded-md bg-gray-100 px-6 py-1 text-sm text-gray-500 shadow-md transition-all hover:bg-cyan-200 md:w-auto">
               <span >Show Matching Properties</span>
             </button>
 
@@ -257,6 +264,27 @@ const PreviewDetails = () => {
               <span>View Profile</span>
             </button>
    </div>
+      {/* ---------------------------- Preview Modal -------------------------- */}
+    {/* Modal for Inventory Configuration */}
+         <Modal open={open} onClose={handleClose} closeAfterTransition>
+           <Fade in={open}>
+             <Box className="absolute right-0 top-0 h-full w-full rounded-t-xl bg-white px-2 py-4 sm:w-3/4 sm:px-3 md:w-2/3 ">
+               <div className="flex items-center justify-between rounded-md bg-cyan-500 px-4 py-2 !text-white shadow-sm">
+                 <Typography>Search Properties for Anand Kumar Lead ID #(1234)</Typography>
+                 <IoMdCloseCircleOutline
+                   color="white"
+                   className="cursor-pointer"
+                   onClick={handleClose}
+                 />
+               </div>
+   
+               <div className="max-h-[90vh] overflow-y-auto bg-white ">
+          <MatchingProperties />
+   
+               </div>
+             </Box>
+           </Fade>
+         </Modal>
     </div>
   );
 };

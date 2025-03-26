@@ -152,6 +152,11 @@ import RealEstateHome from "./Components/RealState/Pages/Home/RealEstateHome.jsx
 
 // Real Estate Leads Page
 import RealEstateLeads from "./Components/RealState/Pages/RealEstate Leads/RealEstateLeads.jsx";
+import LeadSearch from "./Components/RealState/Pages/RealEstate Leads/LeadsSearchScreen/LeadSearchTabs.jsx";
+
+// Real Estate Booking Page
+import Bookings from "./Components/RealState/Pages/Booking/Bookings.jsx";
+
 
 
 const router = createBrowserRouter([
@@ -418,9 +423,10 @@ const router = createBrowserRouter([
 
       //Lead->
       { path: "leads", element: <RealEstateLeads /> },
-      { path: "editlead/:id", element: <Createlead /> },
-      { path: "createlead", element: <Createlead /> },
-      { path: "lead/create/so/:id", element: <CreateSOLead /> },
+      { path: "leads/search_lead", element: <LeadSearch /> },
+
+      //Bookings->
+      { path: "Bookings_and_Brokrage", element: <Bookings /> },
 
       //Contacts->
       { path: "contact", element: <Contact /> },

@@ -15,6 +15,7 @@ import { VscGraph } from "react-icons/vsc";
 import { FaRegHandshake } from "react-icons/fa6";
 import { GiProgression } from "react-icons/gi";
 import { PiChatsBold } from "react-icons/pi";
+import { HiOutlineBookOpen } from "react-icons/hi";
 
 // Assets
 import noAvatar from "../../assets/images/noAvatar.png";
@@ -193,6 +194,12 @@ export default function SidebaBar({ toggle }) {
         data: "Leads",
         link: `/panel/${businessType}/leads`,
         icon: <GrContactInfo />,
+      },
+      {
+        key: 15,
+        data: "Booking & Brokrage",
+        link: `/panel/${businessType}/Bookings_and_Brokrage`,
+        icon: <HiOutlineBookOpen />,
       },
       {
         key: 3,

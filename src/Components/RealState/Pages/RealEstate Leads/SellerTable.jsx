@@ -1,10 +1,17 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+
+//---------------------------- MUI Imports ----------------------------
 import { DataGrid } from "@mui/x-data-grid";
 import { Paper, IconButton, Menu, MenuItem, Modal, Fade,  Typography, Box } from "@mui/material";
+
+//------------------------------------ React Icon ----------------------------
 import { PiDotsThreeOutlineVerticalLight } from "react-icons/pi";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+
+//---------------------------------- Local Imports --------------------------------
 import PreviewDetails from "./Common/PreviewDetails";
+import { printSelectedRow } from "./Common/PrintScreen/printSelectedRow";
 
 export default function SellerTable({ sellers, selectedColumns }) {
    //------------------------------------------------ All States --------------------------------------------
@@ -31,6 +38,9 @@ const handleMenuClick = (option) => {
  if (option === "Preview") {
    setOpen(true);
  }
+  if (option === "Print") {
+       printSelectedRow(selectedRow);
+     }
  handleMenuClose();
 };
 
