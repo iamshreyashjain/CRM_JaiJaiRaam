@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Typography, Box } from "@mui/material";
+import {  Box } from "@mui/material";
 import Calls from "./Component/Calls";
 import Emails from "./Component/Emails";
 import SiteVisits from "./Component/SiteVisits";

@@ -17,6 +17,7 @@ import { GiProgression } from "react-icons/gi";
 import { PiChatsBold } from "react-icons/pi";
 import { HiOutlineBookOpen } from "react-icons/hi";
 import { FaWalkieTalkie } from "react-icons/fa6";
+import { GoTasklist } from "react-icons/go";
 
 // Assets
 import noAvatar from "../../assets/images/noAvatar.png";
@@ -207,6 +208,12 @@ export default function SidebaBar({ toggle }) {
         data: "Conversations",
         link: `/panel/${businessType}/conversations`,
         icon: <FaWalkieTalkie />,
+      },
+      {
+        key: 17,
+        data: "Tasks",
+        link: `/panel/${businessType}/Tasks`,
+        icon: <GoTasklist />,
       },
       {
         key: 3,

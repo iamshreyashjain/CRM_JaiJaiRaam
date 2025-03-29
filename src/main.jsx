@@ -152,6 +152,7 @@ import RealEstateHome from "./Components/RealState/Pages/Home/RealEstateHome.jsx
 
 // Real Estate Leads Page
 import RealEstateLeads from "./Components/RealState/Pages/RealEstate Leads/RealEstateLeads.jsx";
+import LeadDetails from "./Components/RealState/Pages/RealEstate Leads/Common/LeadDetails/LeadDetails.jsx";
 import LeadSearch from "./Components/RealState/Pages/RealEstate Leads/LeadsSearchScreen/LeadSearchTabs.jsx";
 
 // Real Estate Booking Page
@@ -159,6 +160,9 @@ import Bookings from "./Components/RealState/Pages/Booking/Bookings.jsx";
 
 // Real Estate Conversations Page
 import Conversations from "./Components/RealState/Pages/Conversations/Conversations.jsx";
+
+// Real Estate Conversations Page
+import Tasks from "./Components/RealState/Pages/Tasks/Tasks.jsx";
 
 
 
@@ -427,12 +431,17 @@ const router = createBrowserRouter([
       //Lead->
       { path: "leads", element: <RealEstateLeads /> },
       { path: "leads/search_lead", element: <LeadSearch /> },
+      { path: "leads/Lead_Details", element: <LeadDetails /> },
+      
 
       //Bookings->
       { path: "Bookings_and_Brokrage", element: <Bookings /> },
 
       //Conversations->
       { path: "conversations", element: <Conversations /> },
+      
+      //Conversations->
+      { path: "Tasks", element: <Tasks /> },
 
       //Contacts->
       { path: "contact", element: <Contact /> },
