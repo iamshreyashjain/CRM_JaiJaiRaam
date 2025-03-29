@@ -16,6 +16,7 @@ import { FaRegHandshake } from "react-icons/fa6";
 import { GiProgression } from "react-icons/gi";
 import { PiChatsBold } from "react-icons/pi";
 import { HiOutlineBookOpen } from "react-icons/hi";
+import { FaWalkieTalkie } from "react-icons/fa6";
 
 // Assets
 import noAvatar from "../../assets/images/noAvatar.png";
@@ -200,6 +201,12 @@ export default function SidebaBar({ toggle }) {
         data: "Booking & Brokrage",
         link: `/panel/${businessType}/Bookings_and_Brokrage`,
         icon: <HiOutlineBookOpen />,
+      },
+      {
+        key: 16,
+        data: "Conversations",
+        link: `/panel/${businessType}/conversations`,
+        icon: <FaWalkieTalkie />,
       },
       {
         key: 3,

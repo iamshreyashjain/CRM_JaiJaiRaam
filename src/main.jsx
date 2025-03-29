@@ -157,6 +157,9 @@ import LeadSearch from "./Components/RealState/Pages/RealEstate Leads/LeadsSearc
 // Real Estate Booking Page
 import Bookings from "./Components/RealState/Pages/Booking/Bookings.jsx";
 
+// Real Estate Conversations Page
+import Conversations from "./Components/RealState/Pages/Conversations/Conversations.jsx";
+
 
 
 const router = createBrowserRouter([
@@ -427,6 +430,9 @@ const router = createBrowserRouter([
 
       //Bookings->
       { path: "Bookings_and_Brokrage", element: <Bookings /> },
+
+      //Conversations->
+      { path: "conversations", element: <Conversations /> },
 
       //Contacts->
       { path: "contact", element: <Contact /> },
