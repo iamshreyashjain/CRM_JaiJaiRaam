@@ -328,6 +328,8 @@ console.log("URL Change Base:", import.meta.env.VITE_URLCHANGE_BASE);
         response.data.data.userDetail.businessType.replace(/\s+/g, "")
       );
 
+      localStorage.setItem("activeSidebarKey", 1);
+
       localStorage.setItem("CurrentUserId", response.data.data.userDetail.userId);
 
       localStorage.setItem("businessRole", response.data.data.userDetail.role);

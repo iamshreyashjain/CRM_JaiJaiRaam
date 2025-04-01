@@ -5,27 +5,25 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 //------------------Local Import---------------------
-import Basics from "./Basics";
-import Projects from "./Projects";
-import Tower from "./Tower";
-import FLoorPlan from "./FLoorPlan";
-import Units from "./Units";
-import ResaleUnits from "./ResaleUnits";
+import ActivityTab from "./ActivityTab";
+import StarredTab from "./StarredTab";
+import NoteTab from "./NoteTab";
+import CallsTab from "./CallsTab";
+import SiteVisit from "./SiteVisit";
+import FeedTab from "./FeedTab";
+import FollowupsTab from "./FollowupsTab";
+import EmailsTab from "./EmailsTab";
+import WhatsAppTab from "./WhatsAppTab";
+import MergeLeadsTab from "./MergeLeadsTab";
 
 function TabPanel({ value, index, children }) {
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      style={{ height: "calc(100vh - 140px)" }}
-    >
+    <div role="tabpanel" hidden={value !== index}>
       {value === index && (
         <Box
           sx={{
-            height: "100%",
             overflow: "auto",
             py: 3,
-            px: 1,
             my: 1,
             "&::-webkit-scrollbar": { display: "none" }, // For Chrome, Safari
             "-ms-overflow-style": "none", // For IE and Edge
@@ -46,7 +44,7 @@ TabPanel.propTypes = {
   children: PropTypes.node,
 };
 
-export default function InventoryTabs() {
+export default function LeadDetailsTabs() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -63,12 +61,13 @@ export default function InventoryTabs() {
         aria-label="bold tabs example"
         variant="scrollable"
         scrollButtons="auto"
-        className="rounded-lg bg-cyan-100 !font-semibold !text-black"
+        className="rounded-lg !border bg-cyan-100 !font-semibold !text-black !shadow-lg"
         sx={{
           "& .MuiTab-root": {
             fontWeight: "bold",
+            minWidth: "0px",
             color: "black",
-            minWidth: "100px", // Ensures each tab has space to expand
+            padding: "12px 10px",
           },
           "& .Mui-selected": {
             color: "black",
@@ -80,31 +79,48 @@ export default function InventoryTabs() {
           },
         }}
       >
-        <Tab label="Basics" />
-        <Tab label="Projects" />
-        <Tab label="Project Towers" />
-        <Tab label="Floor Plans" />
-        <Tab label="Units" />
-        <Tab label="Resale Units" />
+        <Tab label="Activity" />
+        <Tab label="Starred" />
+        <Tab label="Notes" />
+        <Tab label="Calls" />
+        <Tab label="Site Visit" />
+        <Tab label="Feed" />
+        <Tab label="Followups" />
+        <Tab label="Emails" />
+        <Tab label="Whatsapp" />
+        <Tab label="Merge Leads" />
+
       </Tabs>
 
       <TabPanel value={value} index={0}>
-        <Basics />
+        <ActivityTab />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Projects />
+        <StarredTab />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <Tower />
+        <NoteTab />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <FLoorPlan />
+        <CallsTab />
       </TabPanel>
       <TabPanel value={value} index={4}>
-        <Units />
+        <SiteVisit />
       </TabPanel>
       <TabPanel value={value} index={5}>
-        <ResaleUnits />
+        <FeedTab />
+      </TabPanel>
+      <TabPanel value={value} index={6}>
+        <FollowupsTab />
+      </TabPanel>
+      <TabPanel value={value} index={7}>
+        <EmailsTab />
+      </TabPanel>
+      <TabPanel value={value} index={8}>
+        <WhatsAppTab />
+      </TabPanel>
+      <TabPanel value={value} index={9}>
+        <MergeLeadsTab />
       </TabPanel>
     </Box>
   );

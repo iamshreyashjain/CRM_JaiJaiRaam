@@ -152,6 +152,21 @@ import RealEstateHome from "./Components/RealState/Pages/Home/RealEstateHome.jsx
 
 // Real Estate Leads Page
 import RealEstateLeads from "./Components/RealState/Pages/RealEstate Leads/RealEstateLeads.jsx";
+import LeadDetails from "./Components/RealState/Pages/RealEstate Leads/Common/LeadDetails/LeadDetails.jsx";
+import LeadSearch from "./Components/RealState/Pages/RealEstate Leads/LeadsSearchScreen/LeadSearchTabs.jsx";
+
+// Real Estate Booking Page
+import Bookings from "./Components/RealState/Pages/Booking/Bookings.jsx";
+
+// Real Estate Conversations Page
+import Conversations from "./Components/RealState/Pages/Conversations/Conversations.jsx";
+
+// Real Estate Conversations Page
+import Tasks from "./Components/RealState/Pages/Tasks/Tasks.jsx";
+
+// Real Estate Conversations Page
+import RealEstateReports from "./Components/RealState/Pages/RealEstateReports/RealEstateReports.jsx";
+
 
 
 const router = createBrowserRouter([
@@ -418,9 +433,21 @@ const router = createBrowserRouter([
 
       //Lead->
       { path: "leads", element: <RealEstateLeads /> },
-      { path: "editlead/:id", element: <Createlead /> },
-      { path: "createlead", element: <Createlead /> },
-      { path: "lead/create/so/:id", element: <CreateSOLead /> },
+      { path: "leads/search_lead", element: <LeadSearch /> },
+      { path: "leads/Lead_Details", element: <LeadDetails /> },
+      
+
+      //Bookings->
+      { path: "Bookings_and_Brokrage", element: <Bookings /> },
+
+      //Conversations->
+      { path: "conversations", element: <Conversations /> },
+      
+      //Conversations->
+      { path: "Tasks", element: <Tasks /> },
+      
+      //Reports->
+      { path: "Reports", element: <RealEstateReports /> },
 
       //Contacts->
       { path: "contact", element: <Contact /> },
@@ -467,10 +494,6 @@ const router = createBrowserRouter([
 
       // Financial Activity
       { path: "FinancialActivity", element: <FinancialActivity /> },
-
-      // Report
-      { path: "reports", element: <Reports /> },
-      { path: "clientso/:id", element: <EditClientSO /> },
 
       // ANALYTICS
       { path: "analytics", element: <Analytics /> },
