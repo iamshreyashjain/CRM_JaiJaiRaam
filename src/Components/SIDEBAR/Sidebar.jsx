@@ -254,7 +254,7 @@ export default function SidebaBar({ toggle }) {
       {
         key: 11,
         data: "Reports",
-        link: `/panel/${businessType}/reports`,
+        link: `/panel/${businessType}/Reports`,
         icon: <IoDocumentTextOutline />,
       },
       {

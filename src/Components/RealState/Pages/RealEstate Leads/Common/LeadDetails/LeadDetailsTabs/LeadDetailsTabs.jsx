@@ -4,15 +4,21 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import ActivityTab from "./ActivityTab";
 //------------------Local Import---------------------
+import ActivityTab from "./ActivityTab";
+import StarredTab from "./StarredTab";
+import NoteTab from "./NoteTab";
+import CallsTab from "./CallsTab";
+import SiteVisit from "./SiteVisit";
+import FeedTab from "./FeedTab";
+import FollowupsTab from "./FollowupsTab";
+import EmailsTab from "./EmailsTab";
+import WhatsAppTab from "./WhatsAppTab";
+import MergeLeadsTab from "./MergeLeadsTab";
 
 function TabPanel({ value, index, children }) {
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-    >
+    <div role="tabpanel" hidden={value !== index}>
       {value === index && (
         <Box
           sx={{
@@ -59,9 +65,9 @@ export default function LeadDetailsTabs() {
         sx={{
           "& .MuiTab-root": {
             fontWeight: "bold",
-minWidth: "0px",
+            minWidth: "0px",
             color: "black",
-            padding:"12px 10px"
+            padding: "12px 10px",
           },
           "& .Mui-selected": {
             color: "black",
@@ -79,25 +85,42 @@ minWidth: "0px",
         <Tab label="Calls" />
         <Tab label="Site Visit" />
         <Tab label="Feed" />
+        <Tab label="Followups" />
+        <Tab label="Emails" />
+        <Tab label="Whatsapp" />
+        <Tab label="Merge Leads" />
+
       </Tabs>
 
       <TabPanel value={value} index={0}>
         <ActivityTab />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        2
+        <StarredTab />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        3
+        <NoteTab />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        4
+        <CallsTab />
       </TabPanel>
       <TabPanel value={value} index={4}>
-        5
+        <SiteVisit />
       </TabPanel>
       <TabPanel value={value} index={5}>
-        6
+        <FeedTab />
+      </TabPanel>
+      <TabPanel value={value} index={6}>
+        <FollowupsTab />
+      </TabPanel>
+      <TabPanel value={value} index={7}>
+        <EmailsTab />
+      </TabPanel>
+      <TabPanel value={value} index={8}>
+        <WhatsAppTab />
+      </TabPanel>
+      <TabPanel value={value} index={9}>
+        <MergeLeadsTab />
       </TabPanel>
     </Box>
   );

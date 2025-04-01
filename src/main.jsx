@@ -164,6 +164,9 @@ import Conversations from "./Components/RealState/Pages/Conversations/Conversati
 // Real Estate Conversations Page
 import Tasks from "./Components/RealState/Pages/Tasks/Tasks.jsx";
 
+// Real Estate Conversations Page
+import RealEstateReports from "./Components/RealState/Pages/RealEstateReports/RealEstateReports.jsx";
+
 
 
 const router = createBrowserRouter([
@@ -442,6 +445,9 @@ const router = createBrowserRouter([
       
       //Conversations->
       { path: "Tasks", element: <Tasks /> },
+      
+      //Reports->
+      { path: "Reports", element: <RealEstateReports /> },
 
       //Contacts->
       { path: "contact", element: <Contact /> },
@@ -488,10 +494,6 @@ const router = createBrowserRouter([
 
       // Financial Activity
       { path: "FinancialActivity", element: <FinancialActivity /> },
-
-      // Report
-      { path: "reports", element: <Reports /> },
-      { path: "clientso/:id", element: <EditClientSO /> },
 
       // ANALYTICS
       { path: "analytics", element: <Analytics /> },
