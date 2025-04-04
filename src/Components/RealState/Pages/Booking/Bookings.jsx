@@ -16,7 +16,7 @@ export default function Bookings() {
           <Typography
             key={button}
             sx={{ width: "fit-content" }}
-            className={`cursor-pointer rounded-md px-3 py-1 text-sm transition-all ${
+            className={`cursor-pointer rounded-md !px-3 !py-1 text-sm transition-all ${
               selectedButton === button
                 ? "bg-cyan-500 text-white shadow-md"
                 : "bg-gray-200 text-black hover:bg-cyan-400 hover:text-white"
