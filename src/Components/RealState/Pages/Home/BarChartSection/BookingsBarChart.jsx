@@ -70,7 +70,10 @@ const BookingsBarChart = () => {
                   <rect
                     {...props}
                     fill={props.payload.color}
-                    width={20} // Custom bar width
+                    width={20} 
+                    radius={[10, 10, 0, 0]} 
+                    // rx="10"
+        ry="10"
                   />
                 )}
               />

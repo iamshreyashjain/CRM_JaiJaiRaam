@@ -40,7 +40,7 @@ const buyerData = [
   },
 ];
 
-const CustomReports = () => {
+const NewCustomReports = () => {
   //---------------------------------------- All States ---------------------------------
 
   const [selectedColumns, setSelectedColumns] = useState([
@@ -178,14 +178,11 @@ const CustomReports = () => {
             </div>
           </div>
           {/* --------------------------------------- Create New Report ------------------------------ */}
-          
-        {/* New Invoice Button */}
-        <button
-          
-          className="flex w-full items-center justify-center gap-2 rounded-md bg-cyan-500 px-4 py-2 text-white shadow-md hover:bg-cyan-600 md:w-auto"
-        >
-          <span>Create New Report</span>
-        </button>
+
+          {/* New Invoice Button */}
+          <button className="flex w-full items-center justify-center gap-2 rounded-md bg-cyan-500 px-4 py-2 text-white shadow-md hover:bg-cyan-600 md:w-auto">
+            <span>Create New Report</span>
+          </button>
         </Box>
 
         {/* ------------------------------ Table -------------------------------- */}
@@ -250,4 +247,4 @@ const CustomReports = () => {
   );
 };
 
-export default CustomReports;
+export default NewCustomReports;
